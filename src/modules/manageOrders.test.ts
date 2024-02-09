@@ -127,3 +127,41 @@ describe('Test della funzione newOrder', () => {
     });
 
 });
+
+describe('Test della funzione getAmount', () => {
+
+    test('Riceve imponibile giftcard', () => {
+        const giftcard = [{
+            tipologia: 'Digitale',
+            taglio: 10,
+            quantita: 1
+        },
+        {
+            tipologia: 'Cartacea',
+            taglio: 20,
+            quantita: 1
+        }];
+
+        const imponibile = getAmount(giftcard);
+
+        expect(imponibile).toBe(30);
+    });
+
+    test('Inserisce iva al 22%', () => {
+        const imponibile = 30;
+
+        const iva = getAmount(imponibile);
+
+        expect(iva).toBe(6.6);
+    });
+
+    test('Totale dell\'ordine', () => {
+        const imponibile = 30;
+        const iva = 6.6;
+
+        const totale = getAmount(imponibile, iva);
+
+        expect(totale).toBe(36.6);
+    });
+
+});
