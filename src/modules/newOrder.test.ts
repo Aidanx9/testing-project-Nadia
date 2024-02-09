@@ -1,4 +1,4 @@
-import newOrder from './newOrder';
+import { newOrder, addGiftcard } from './manageOrders';
 
 describe('Test della funzione newOrder', () => {
 
@@ -8,10 +8,12 @@ describe('Test della funzione newOrder', () => {
             codiceFiscale: 'RSSMRA80A01H501Q',
             nome: 'Mario',
             cognome: 'Rossi',
-            email: 'mario@example.com'
+            email: 'mario@example.com',
+            giftcards: []
         };
 
         const ordine = newOrder(datiProprietario);
+        
 
         expect(ordine).toEqual({
             codiceFiscale: 'RSSMRA80A01H501Q',
@@ -27,7 +29,8 @@ describe('Test della funzione newOrder', () => {
             codiceFiscale: 'RSSMRA80A01H501Q',
             nome: 'Mario1',
             cognome: 'Rossi1',
-            email: 'mario@example.com'
+            email: 'mario@example.com',
+            giftcards: []
         };
         const ordine = newOrder(datiProprietario);
         expect(ordine.nome).toBe('Mario1');
@@ -39,7 +42,8 @@ describe('Test della funzione newOrder', () => {
             codiceFiscale: 'Codicenonvalido',
             nome: 'Mario',
             cognome: 'Rossi',
-            email: 'mario@example.com'
+            email: 'mario@example.com',
+            giftcards: []
         };
         expect(() => {
             newOrder(datiProprietario);
