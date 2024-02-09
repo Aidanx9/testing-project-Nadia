@@ -3,11 +3,18 @@ export type TypeOrder = {
     nome: string,
     cognome: string,
     email: string,
-    giftcards: Array<Giftcard>
+    giftcards: Array<TypeGiftcard>
 }
 
-export type Giftcard = {
+export type TypeGiftcard = {
     tipologia: string,
     taglio: number,
     quantita: number
+}
+
+export type TypeProprietario = {
+    codiceFiscale: string,
+    nome: string,
+    cognome: string,
+    email: string,
 }
